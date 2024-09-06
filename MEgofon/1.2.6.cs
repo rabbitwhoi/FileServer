@@ -1,13 +1,23 @@
 ﻿
-Console.WriteLine("Введите периметр: ");
-string input = Console.ReadLine();
+using System;
+namespace program
+{
+    class Program
+    {
+        static void Main()
+        {
+            int p;
+            p = int.Parse(Console.ReadLine());
 
-double p = Convert.ToInt16(input);
+            int dlina = p / 4;
+
+            int result = dlina * dlina;
+
+            Console.WriteLine(result);
+
+        }
 
 
-double s1 = (p / 4);
+    }
 
-double s = s1 * s1;
-//double result = Math.Pow(s1, 2);
-
-Console.WriteLine("Площадь ровна: " + s);
+}
