@@ -1,4 +1,4 @@
-hostname KarpovR2
+hostname KarpovS3
 enable password cisco
 username admin password cisco
 line console 0
@@ -9,7 +9,7 @@ password cisco
 login 
 transport input all
 service password-encryption
-banner motd "Hello R2"
+banner motd "Hello S3"
 
 SSH
 
