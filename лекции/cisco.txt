@@ -1,4 +1,4 @@
-hostname KarpovR1
+hostname KarpovR2
 enable password cisco
 username admin password cisco
 line console 0
@@ -9,7 +9,7 @@ password cisco
 login 
 transport input all
 service password-encryption
-banner motd "Hello R1"
+banner motd "Hello R2"
 
 SSH
 
@@ -21,8 +21,14 @@ Username admin password cisco
 ip domain-name cisco.com
 Crypto key generate rsa
 
+port Sec
+Switch(config)# interface range Fa0/1 - 24
+switchport mode access
+switchport port-security
+switchport port-security maximum 1
+switchport port-security mac-address sticky
+switchport port-security violation shutdown
 
-Где:
 
 <ip-address> — IP-адрес устройства, для которого вы хотите добавить статическую ARP-запись.
 <hardware-address> — MAC-адрес устройства.
