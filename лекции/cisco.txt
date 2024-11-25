@@ -1,4 +1,4 @@
-hostname KarpovR2
+hostname NilovEdge
 enable password cisco
 username admin password cisco
 line console 0
@@ -9,11 +9,16 @@ password cisco
 login 
 transport input all
 service password-encryption
-banner motd "Hello R2"
+banner motd "Hello Edge"
+
+nat
+
+Router(config)#ip nat in
+ip nat inside sou
+ip nat inside source st
+ip nat inside source static 192.168.17.2 209.192.16.1 
 
 SSH
-
-
 Line vty 0 15
 Login local 
 Transport input ssh
