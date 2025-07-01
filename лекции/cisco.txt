@@ -1,4 +1,4 @@
-hostname NilovEdge
+hostname AlbogachievR2
 enable password cisco
 username admin password cisco
 line console 0
@@ -9,7 +9,7 @@ password cisco
 login 
 transport input all
 service password-encryption
-banner motd "Hello Edge"
+banner motd "Hello R2"
 
 nat
 
@@ -25,6 +25,19 @@ Transport input ssh
 Username admin password cisco
 ip domain-name cisco.com
 Crypto key generate rsa
+
+SSH ChatGPT
+hostname R1
+ip domain-name localdomain
+username имя privilege 15 secret cisco
+crypto key generate rsa
+ip ssh version 2
+
+line vty 0 4
+transport input ssh
+login local
+exit
+
 
 port Sec
 Switch(config)# interface range Fa0/1 - 24
