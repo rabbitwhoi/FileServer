@@ -1,4 +1,4 @@
-hostname AlbogachievR2
+hostname KolevkovR2
 enable password cisco
 username admin password cisco
 line console 0
@@ -18,13 +18,12 @@ ip nat inside sou
 ip nat inside source st
 ip nat inside source static 192.168.17.2 209.192.16.1 
 
-SSH
-Line vty 0 15
-Login local 
-Transport input ssh
-Username admin password cisco
-ip domain-name cisco.com
-Crypto key generate rsa
+TELNET
+username admin privilege 15 secret cisco
+line vty 0 4
+login local
+transport input telnet
+exit
 
 SSH ChatGPT
 hostname R1
@@ -46,6 +45,30 @@ switchport port-security
 switchport port-security maximum 1
 switchport port-security mac-address sticky
 switchport port-security violation shutdown
+
+NTP
+! 1) Указываем NTP-сервер
+ntp server 192.168.200.100
+
+! 2) Включаем обновление аппаратных часов (если есть RTC)
+ntp update-calendar
+
+! 3) (Необязательно) Включаем аутентификацию NTP
+ntp authenticate
+ntp authentication-key 1 md5 NTPpa55
+ntp trusted-key 1
+
+! 4) Включаем временные метки для логов и отладки
+service timestamps debug datetime msec
+service timestamps log datetime msec
+
+! 5) Проверка времени
+do show clock
+
+! 6) Проверка состояния NTP
+do show ntp associations
+do show ntp status
+
 
 
 <ip-address> — IP-адрес устройства, для которого вы хотите добавить статическую ARP-запись.
