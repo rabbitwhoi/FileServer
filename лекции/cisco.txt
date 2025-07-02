@@ -1,4 +1,4 @@
-hostname KolevkovR2
+hostname NilovR2
 enable password cisco
 username admin password cisco
 line console 0
